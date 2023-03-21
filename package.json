@@ -1,0 +1,30 @@
+{
+  "name": "exports-fallback",
+  "version": "1.0.0",
+  "description": "Create proxy directories by `export` field in `package.json` for older environments",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vtaits/exports-fallback.git"
+  },
+  "keywords": [
+    "exports",
+    "fallback",
+    "package.json",
+    "node16"
+  ],
+  "files": [
+    "createFallback.js"
+  ],
+  "author": "Vadim Taits <taizvadim@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vtaits/exports-fallback/issues"
+  },
+  "homepage": "https://github.com/vtaits/exports-fallback#readme",
+  "bin": {
+    "exports-fallback": "./createFallback.js"
+  },
+  "dependencies": {
+    "command-line-args": "^5.2.1"
+  }
+}
