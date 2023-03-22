@@ -84,5 +84,7 @@ Script also will create `.gitignore` (or change existed):
 
 ```
 foo
+!/*/foo
 bar
+!/*/bar
 ```
