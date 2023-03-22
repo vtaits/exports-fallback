@@ -113,11 +113,14 @@ console.log('New dirs:\n');
 
 console.log('\n');
 
+const getGitignoreRulesForDir = (dirName) => `${dirName}\n!/*/${dirName}`;
+
 if (options.gitignore) {
   const gitignoreUrl = path.resolve('./.gitignore');
 
   if (!fs.existsSync(gitignoreUrl)) {
     const content = [...generatedDirsSet]
+      .map(getGitignoreRulesForDir)
       .join('\n') + '\n';
 
     fs.writeFileSync(gitignoreUrl, content);
@@ -143,7 +146,10 @@ if (options.gitignore) {
     if (dirsToInclude.length === 0) {
       console.log('.gitignore was not changed\n');
     } else {
-      const nextContent = [...lines, ...dirsToInclude].join('\n') + '\n';
+      const nextContent = [
+        ...lines,
+        ...dirsToInclude.map(getGitignoreRulesForDir),
+      ].join('\n') + '\n';
 
       fs.writeFileSync(gitignoreUrl, nextContent);
 
