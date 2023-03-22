@@ -1,6 +1,6 @@
 # exports-fallback
 
-Create proxy directories by `export` field in `package.json` for older environments.
+Create proxy directories by `exports` field in `package.json` for older environments.
 
 ## Parameters
 

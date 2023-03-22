@@ -11,7 +11,7 @@ const options = commandLineArgs([
 ]);
 
 if (options.help) {
-  console.log('Create proxy directories by `export` field in `package.json` for older environments');
+  console.log('Create proxy directories by `exports` field in `package.json` for older environments');
   console.log('');
   console.log('Parameters:');
   console.log('-g  Add created directories to .gitignore');

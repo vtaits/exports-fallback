@@ -1,7 +1,7 @@
 {
   "name": "exports-fallback",
   "version": "1.0.0",
-  "description": "Create proxy directories by `export` field in `package.json` for older environments",
+  "description": "Create proxy directories by `exports` field in `package.json` for older environments",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vtaits/exports-fallback.git"
