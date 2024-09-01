@@ -56,12 +56,13 @@ const generateInnerPath = (originalPath, depth) => {
 
 const generatedDirsSet = new Set();
 
-Object.keys(packageExports)
-  .forEach((exportPath) => {
+Object.entries(packageExports)
+  .forEach(([exportPath, exportFromPackage]) => {
     if (
       exportPath.includes('*')
       || exportPath === 'import'
       || exportPath === 'require'
+      || exportPath.endsWith('/package.json')
     ) {
       return;
     }
@@ -77,8 +78,6 @@ Object.keys(packageExports)
       return;
     }
 
-    const exportFromPackage = packageExports[exportPath];
-
     const exportRaw = typeof exportFromPackage === 'string'
       ? {
         require: exportFromPackage,
@@ -90,7 +89,7 @@ Object.keys(packageExports)
     generatedDirsSet.add(pathSplit[1]);
 
     const exportForWrite = {
-      main: generateInnerPath(exportRaw.require, depth),
+      main: generateInnerPath(exportRaw.require || exportRaw.default, depth),
       module: generateInnerPath(exportRaw.import, depth),
       types: generateInnerPath(exportRaw.types || exportRaw.typings, depth),
       typings: generateInnerPath(exportRaw.typings || exportRaw.types, depth),
