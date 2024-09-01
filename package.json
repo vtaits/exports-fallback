@@ -1,6 +1,6 @@
 {
   "name": "exports-fallback",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Create proxy directories by `exports` field in `package.json` for older environments",
   "repository": {
     "type": "git",
